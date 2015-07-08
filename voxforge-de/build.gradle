@@ -1,0 +1,23 @@
+repositories {
+    ivy {
+        url 'http://goofy.zamia.org'
+        layout 'pattern', {
+            artifact '[module]/[classifier]/[module]-[classifier]-[revision].[ext]'
+        }
+    }
+}
+
+dependencies {
+    compile name: 'voxforge', version: 'r20141117', classifier: 'de', ext: 'tgz'
+}
+
+processResources {
+    from configurations.compile
+    eachFile { details ->
+        copy {
+            from tarTree(details.file)
+            into destinationDir
+        }
+        details.exclude()
+    }
+}
