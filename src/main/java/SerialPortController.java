@@ -5,6 +5,7 @@
     Modified for talking elevator by T.Liadal July 2007.
 */
 
+import com.jamierf.rxtx.RXTXLoader;
 import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
 import gnu.io.NoSuchPortException;
@@ -28,7 +29,13 @@ public class SerialPortController implements SerialControllerInterface {
         CommPortIdentifier portId;
         CommPort comm;
         SerialPort serialPort;
-        
+
+        try {
+            RXTXLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         try {
             portId = CommPortIdentifier.getPortIdentifier(portName);
         } catch (NoSuchPortException ex) {
