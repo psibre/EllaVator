@@ -37,13 +37,6 @@ dependencies {
     compile group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
 }
 
-project(':pi4j') {
-    task install(type: Exec) {
-        executable 'mvn'
-        args 'install'
-    }
-}
-
 project(':sphinx4:sphinx4-core') {
     repositories {
         jcenter()
