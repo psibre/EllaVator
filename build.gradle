@@ -34,7 +34,7 @@ dependencies {
     compile project(':opendial')
     testCompile localGroovy()
     testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
-    compile group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
+    compile group: 'com.jamierf', name: 'rxtx', version: '1.2'
 }
 
 project(':sphinx4:sphinx4-core') {
